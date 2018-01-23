@@ -1,38 +1,41 @@
 # minhash.py
 import random
-import time
+
+
 
 def minhash():
+    d1 = set(random.randint(0, 2000) for _ in range(1000))
+    d2 = set(random.randint(0, 2000) for _ in range(1000))
+    jacc_sim = len(d1.intersection(d2)) / len(d1.union(d2))
+    print("jaccard similarity: {}".format(jacc_sim))
 
-    DOC_SIZE = 10**4
-    N_DOCS = 100
+    N_HASHES = 200
+    hash_funcs = []
+    for i in range(N_HASHES):
+        hash_funcs.append(universal_hashing())
 
-    print("Generating mock documents...")
-    docs = [[random.randint(0, 10**6) for _ in range(DOC_SIZE)] for _ \
-            in range(N_DOCS)]
-    print("Generating shingles and shingle hashes...")
-    shingles = lambda d: [hash(tuple(d[i:i+j])) for j in range(3) for i in range(len(d)-j)]
-    doc_hashes = [set(shingles(d)) for d in docs]
-    print("Computing Jaccard similarities..")
-    jacc_sims = {}
-
-    n, n_executions = 0, 20
-    total_time = 0.0
-    for i in range(len(docs)):
-        for j in range(i+1, len(docs)):
-            if n > n_executions:
-                break
-            start = time.time()
-            s1, s2 = doc_hashes[i], doc_hashes[j]
-            jacc_sims[(i,j)] = len(s1.intersection(s2)) * 1.0 / len(s1.union(s2))
-            end = time.time()
-            total_time += end - start
-            n += 1
-            n_executions += 1
-    print("{} seconds elapsed on average for computing the Jaccard similarity directly".format(
-       total_time * 1.0 / n))
+    m1 = [min([h(e) for e in d1]) for h in hash_funcs]
+    m2 = [min([h(e) for e in d2]) for h in hash_funcs]
+    minhash_sim = sum(int(m1[i] == m2[i]) for i in range(N_HASHES)) / N_HASHES
+    print("min-hash similarity: {}".format(minhash_sim))
 
 
+
+def universal_hashing():
+    def rand_prime():
+        while True:
+            p = random.randrange(2 ** 32, 2 ** 34, 2)
+            if all(p % n != 0 for n in range(3, int((p ** 0.5) + 1), 2)):
+                return p
+    m = 2 ** 32 - 1
+    p = rand_prime()
+    a = random.randint(0, p)
+    if a % 2 == 0:
+        a += 1
+    b = random.randint(0, p)
+    def h(x):
+        return ((a * x + b) % p) % m
+    return h
 
 
 
