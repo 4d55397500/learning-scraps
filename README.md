@@ -6,6 +6,6 @@ Machine learning and related mathematical scraps.
 
 * [**minhash**](minhash/minhash.py) ([notes](./))
 * [**singular value decomposition**](svdtext/svdtext.py)
-* [**streaming posterior update**](./) ([notes](./posterior))
+* [**streaming posterior update**](./posterior/cointoss.py) ([notes](./posterior))
 
 
