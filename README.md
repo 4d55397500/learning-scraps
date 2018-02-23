@@ -1,7 +1,7 @@
 learning_scraps
 ---
 
-minimal to no dependence on external algorithm libraries
+minimal to no dependence on external algorithm implementations
 
 
 * [**minhash**](minhash/minhash.py) ([notes](./)): verify the relationship between minhash distance and Jaccard similarity
