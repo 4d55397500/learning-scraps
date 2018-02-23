@@ -1,7 +1,7 @@
 learning_scraps
 ---
 
-Machine learning and related mathematical scraps.
+minimal to no dependence on external algorithm libraries
 
 
 * [**minhash**](minhash/minhash.py) ([notes](./)): verify the relationship between minhash distance and Jaccard similarity
