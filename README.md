@@ -11,5 +11,5 @@ minimal to no dependence on external algorithm implementations
 * [**margin perceptron**](./margin_perceptron/margin_perceptron.py): margin perceptron in Tensorflow
 * [**dual perceptron**](./dual_perceptron/dual_perceptron.py): dual perceptron in Tensorflow
 * [**logistic regression**](./log_reg/log_reg.py): logistic regression in Tensorflow
-* [**multi-instance learning**](./mitr/mitr.py): an example of multi-instance learning implemented in Tensorflow
+* [**multi-instance learning**](./mitr/): multi-instance learning Tensorflow
 

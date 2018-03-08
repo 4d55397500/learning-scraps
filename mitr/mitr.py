@@ -2,8 +2,8 @@
 import os
 import numpy as np
 import tensorflow as tf
-
-
+import matplotlib.pyplot as plt
+import sys
 
 def mitr(data_gen, batch_size, input_dim, ngroups):
 
@@ -72,6 +72,11 @@ def mitr(data_gen, batch_size, input_dim, ngroups):
             saver.restore(sess, cpkt.model_checkpoint_path)
             print("Loaded checkpointed model:\n {} for {}.".format(cpkt.model_checkpoint_path,
                                                                    "mitr"))
+
+        fig, axes = plt.subplots(nrows=4, ncols=4)
+        fig.set_size_inches(11, 20)
+
+        plt_ix = 0
         for X, group_labels, y, ratio in data_gen(batch_size):
             _, ls, ls1, ls2, step, summary, posrt = sess.run([optimizer, loss, loss_1, loss_2, global_step, summary_op, pos_class_ratio],
                                    feed_dict={input: X, group_labels_input: group_labels, pos_class_ratio: ratio})
@@ -83,8 +88,13 @@ def mitr(data_gen, batch_size, input_dim, ngroups):
                 writer.flush()
                 print("Saved to {}".format("mitr" + "/" + "mitr"))
                 heatmap_pred = sess.run(ypred, feed_dict={input: heatmap_input(), group_labels_input: group_labels})
-                heatmap(heatmap_pred)
-
+                heatmap(heatmap_pred, axes.flatten()[plt_ix])
+                axes.flatten()[plt_ix].set_title("step: {}".format(step))
+                plt_ix += 1
+                if plt_ix > 15:
+                    plt.savefig('heatmap.png', dpi=100)
+                    print("Saved heatmap.png")
+                    sys.exit(0)
 
 
 
@@ -109,11 +119,10 @@ def sample_decision_boundary_small_uniform(batch_size):
         yield x, y_group, y, ratio
 
 
-def heatmap(heatmap_values):
+def heatmap(heatmap_values, axes):
     """ heatmap_values is given in order rows then
         columns: 00, 01, 02,..etc
     """
-    import matplotlib.pyplot as plt
 
     n = 100
 
@@ -122,13 +131,12 @@ def heatmap(heatmap_values):
         for j in range(n):
             data[(i, j)] = heatmap_values[n * i + j]
 
-    fig, axis = plt.subplots()
-    heatmap = axis.pcolor(data, cmap=plt.cm.Blues)
-
-    fig.set_size_inches(11, 11)
-    plt.colorbar(heatmap)
-    plt.savefig('heatmap.png', dpi=100)
-    print("Saved heatmap.png")
+    #fig, axis = plt.subplots()
+    heatmap = axes.pcolor(data, cmap=plt.cm.Blues)
+    #fig.set_size_inches(11, 11)
+    #plt.colorbar(heatmap)
+    #plt.savefig('heatmap.png', dpi=100)
+    #print("Saved heatmap.png")
 
 
 def heatmap_input():
