@@ -1,4 +1,9 @@
 # mitr.py
+"""
+  weakly supervised learning of a
+  linear boundary
+
+"""
 import os
 import numpy as np
 import tensorflow as tf
@@ -23,7 +28,7 @@ def mitr(data_gen, batch_size, input_dim, ngroups):
         b = tf.Variable(tf.random_normal((1,)), dtype=tf.float32)
         return tf.nn.sigmoid(tf.add(tf.matmul(x, w), b))
 
-    def group_prediction_penalty(l, lh):
+    def gpp(l, lh):
         l = tf.expand_dims(l, -1)
         lh = tf.expand_dims(lh, -1)
         l_sq = tf.reduce_sum(tf.square(l))
@@ -31,19 +36,19 @@ def mitr(data_gen, batch_size, input_dim, ngroups):
         l_lh_dp = tf.matmul(tf.transpose(l), lh)
         return tf.reduce_sum(l_sq - 2 * l_lh_dp + lh_sq)
 
-    def prediction_penalty(y):
-        return pairwise_sq_diff(y)
+    def pp(y):
+        return pr_sq_diff(y)
 
-    def pairwise_sq_diff(x):
+    def pr_sq_diff(x):
         x_sq = tf.reduce_sum(tf.square(x), axis=-1)
         x_dp = tf.matmul(x, tf.transpose(x))
         return tf.abs(x_sq - 2 * x_dp + tf.transpose(x_sq))
 
-    def kernel(x):
+    def rbf_kernal(x):
         gamma = 1.0
-        return tf.exp(-gamma * pairwise_sq_diff(x))
+        return tf.exp(-gamma * pr_sq_diff(x))
 
-    def aggregated_predictions(y):
+    def aggpred(y):
         return tf.segment_mean(y[:, 0], unique_group_enum)
 
     N = tf.constant(batch_size, dtype=tf.float32)
@@ -51,8 +56,8 @@ def mitr(data_gen, batch_size, input_dim, ngroups):
     K = tf.constant(ngroups, dtype=tf.float32)
 
     ypred = lr(input)
-    loss_1 = 1.0 / tf.square(N) * tf.reduce_sum(kernel(input) * prediction_penalty(ypred))
-    loss_2 = lambda_c / K * group_prediction_penalty(tf.cast(unique_group_labels_input, tf.float32), aggregated_predictions(ypred))
+    loss_1 = 1.0 / tf.square(N) * tf.reduce_sum(rbf_kernal(input) * pp(ypred))
+    loss_2 = lambda_c / K * gpp(tf.cast(unique_group_labels_input, tf.float32), aggpred(ypred))
     loss = loss_1 + loss_2
     optimizer = tf.train.AdamOptimizer(learning_rate=1e-3).minimize(loss, global_step=global_step)
     writer = tf.summary.FileWriter("mitr_logs")
@@ -130,13 +135,7 @@ def heatmap(heatmap_values, axes):
     for i in range(n):
         for j in range(n):
             data[(i, j)] = heatmap_values[n * i + j]
-
-    #fig, axis = plt.subplots()
-    heatmap = axes.pcolor(data, cmap=plt.cm.Blues)
-    #fig.set_size_inches(11, 11)
-    #plt.colorbar(heatmap)
-    #plt.savefig('heatmap.png', dpi=100)
-    #print("Saved heatmap.png")
+    axes.pcolor(data, cmap=plt.cm.Blues)
 
 
 def heatmap_input():
