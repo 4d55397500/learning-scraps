@@ -12,4 +12,4 @@ minimal to no dependence on external algorithm implementations
 * [**dual perceptron**](./dual_perceptron/dual_perceptron.py): dual perceptron in Tensorflow
 * [**logistic regression**](./log_reg/log_reg.py): logistic regression in Tensorflow
 * [**multi-instance learning**](./mitr/): multi-instance learning Tensorflow
-
+* [**local minimum**](./local_min/local_min.py): Find a local minimum of `f(x) = (Ax - b)^2`
