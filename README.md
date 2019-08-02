@@ -1,6 +1,7 @@
 learning_scraps
 ---
 
+An assortment of learning and optimization operations.
 
 * [**minhash**](minhash/minhash.py) ([notes](./)): verifies the relationship between minhash distance and Jaccard similarity
 * [**singular value decomposition**](svdtext/svdtext.py): svd for similarity between words in sentences
