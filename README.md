@@ -6,7 +6,6 @@ learning_scraps
 * [**singular value decomposition**](svdtext/svdtext.py): svd for similarity between words in sentences
 * [**streaming posterior update**](./posterior/cointoss.py) ([notes](./posterior)): iterative posterior update
 * [**kernel perceptron**](./kernel_perceptron/kernel_perceptron.py): kernel perceptron in Tensorflow
-* [**margin perceptron**](./margin_perceptron/margin_perceptron.py): margin perceptron in Tensorflow
 * [**dual perceptron**](./dual_perceptron/dual_perceptron.py): dual perceptron in Tensorflow
 * [**logistic regression**](./log_reg/log_reg.py): logistic regression in Tensorflow
 * [**multi-instance learning**](./mitr/): multi-instance learning Tensorflow
