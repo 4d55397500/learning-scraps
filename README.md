@@ -4,8 +4,7 @@ learning_scraps
 various learning scraps
 
 * [**multi-instance learning**](https://github.com/redwrasse/multi-instance-learning): Implements [From Group to Individual Labels using Deep Features](https://arxiv.org/pdf/1411.3128.pdf). idea: transfer knowledge of labels on groups (subsets of data) to learned labels on individual points. often labels on groups are present/cheap, labels on individuals are expensive/rare.
-
-Example: Suppose known voting results by neighborhood, as well as features of (but not specific voting result) of individuals. Multi-instance learning uses this information to infer voting likelihood of each individual.
+  Example: Suppose known voting results by neighborhood, as well as features of (but not specific voting result) of individuals. Multi-instance learning uses this    information to infer voting likelihood of each individual.
 * [**heteroscedastic model**](https://gist.github.com/redwrasse/1281b12a7012ad9e699842f2701eb8a9): parameterized variance in discriminative gaussian
 * [**gradient desecent gaussian**](https://gist.github.com/redwrasse/310189d41dc3bab76ac5956e654286a8): Classic generative model, gradient descent on mean, standard deviation
 * [**gradient descent on gaussian mixture model**](https://gist.github.com/redwrasse/e46976d3fc2df7528742b6f55a79b315): Demonstrated poor training on direct gradient descent on full generative model for a GMM, motivating the EM algorithm. In this case, exponential terms summed inside the logarithm cause the poor training.
