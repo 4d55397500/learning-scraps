@@ -9,7 +9,7 @@ various learning scraps
 * [**gradient descent, mixture model**](https://gist.github.com/redwrasse/e46976d3fc2df7528742b6f55a79b315): Demonstration of poor training/convergence on full generative distribution for gaussian mixture model, motivating the EM algorithm.
 * [**single-layer autoencoder**](https://github.com/redwrasse/autoencoders/blob/master/linear_ae_pca.py): Single-layer autoencoder as principal components projection.
 * [**autoencoders/semantic hashing**](https://github.com/redwrasse/autoencoders): Various autoencoders, semantic hashing.
-* [**autoregressive convolutional layer**](https://gist.github.com/redwrasse/9e91904fcd63511a1350af374b644396): AR(2) model trained with gradient descent on convolutional layer.
+* [**autoregressive convolutional layer**](https://gist.github.com/redwrasse/9e91904fcd63511a1350af374b644396): Generative convolutional model for AR(2).
 * [**sm-bag-words**](https://github.com/redwrasse/autoencoders/blob/master/bag_of_words_semantic_hashing.py): Semantic hashing, bag of words.
 * [**backprop-example**](https://gist.github.com/redwrasse/54ce1fb6731b9bd688647f5b5e1f5dfc): Backprop for example functional.
 * [**array-reinforcement-learning**](https://gist.github.com/redwrasse/dd5dd4924129d338b3a5ab6f6ac74d1b): Value iteration algorithm on a 1d arrray.
