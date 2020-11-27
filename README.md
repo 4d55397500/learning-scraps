@@ -24,3 +24,4 @@ various learning scraps, intentionally self-contained toy models to avoid any re
 * [**pattern-automaton**](https://github.com/redwrasse/pattern-automaton): String matching pattern automaton.
 * [**redundant-bits**](https://gist.github.com/redwrasse/29291e31c746cba8c4ca931869c0ca2c): Redundant bits encoder-decoder.
 * [**minimax-tree**](https://gist.github.com/redwrasse/673542473187e56e3763ad65e5b5b370): Explicit minimax tree.
+* [**gr-model-brute**](https://gist.github.com/redwrasse/c08ea0e9c40bbc1598ac7091423f1fe0): Brute force gradient descent, partition function calc. on simple graphical model. Another example of what not to do.
