@@ -23,3 +23,4 @@ various learning scraps, intentionally self-contained toy models to avoid any re
 * [**mc-r**](https://gist.github.com/redwrasse/04d4dad871f398a7df9ab15822ded5cf): Simple Monte Carlo integration on real line.
 * [**pattern-automaton**](https://github.com/redwrasse/pattern-automaton): String matching pattern automaton.
 * [**redundant-bits**](https://gist.github.com/redwrasse/29291e31c746cba8c4ca931869c0ca2c): Redundant bits encoder-decoder.
+* [**minimax-tree**](https://gist.github.com/redwrasse/673542473187e56e3763ad65e5b5b370): Explicit minimax tree.
