@@ -20,3 +20,4 @@ various learning scraps
 * [**dual perceptron**](./dual_perceptron/dual_perceptron.py): Dual perceptron.
 * [**logistic regression**](./log_reg/log_reg.py): Logistic regression.
 * [**local minimum with norm constraint**](./local_min_constraint/local_min_constraint.py): Local minimum  with constraint.
+* [**mc-r**](https://gist.github.com/redwrasse/04d4dad871f398a7df9ab15822ded5cf): Simple Monte Carlo integration on real line.
