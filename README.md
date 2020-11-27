@@ -22,3 +22,4 @@ various learning scraps, intentionally self-contained toy models to avoid any re
 * [**local minimum with norm constraint**](./local_min_constraint/local_min_constraint.py): Local minimum  with constraint.
 * [**mc-r**](https://gist.github.com/redwrasse/04d4dad871f398a7df9ab15822ded5cf): Simple Monte Carlo integration on real line.
 * [**pattern-automaton**](https://github.com/redwrasse/pattern-automaton): String matching pattern automaton.
+* [**redundant-bits**](https://gist.github.com/redwrasse/29291e31c746cba8c4ca931869c0ca2c): Redundant bits encoder-decoder.
