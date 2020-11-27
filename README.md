@@ -1,7 +1,7 @@
 learning_scraps
 ---
 
-various learning scraps
+various learning scraps, intentionally self-contained toy models to avoid any real world complications.
 
 * [**multi-instance learning**](https://github.com/redwrasse/multi-instance-learning): Learn individual from group labels.
 * [**heteroscedastic model**](https://gist.github.com/redwrasse/1281b12a7012ad9e699842f2701eb8a9): Parameterized variance in discriminative gaussian
