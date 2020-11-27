@@ -14,7 +14,7 @@ various learning scraps
 * [**backprop-example**](https://gist.github.com/redwrasse/54ce1fb6731b9bd688647f5b5e1f5dfc): Backprop for example functional.
 * [**array-reinforcement-learning**](https://gist.github.com/redwrasse/dd5dd4924129d338b3a5ab6f6ac74d1b): Value iteration algorithm on a 1d arrray.
 * [**minhash**](minhash/minhash.py): Verifies minhash distance as Jaccard similarity.
-* [**singular value decomposition**](svdtext/svdtext.py): svd for similarity between words in sentences
+* [**singular value decomposition**](svdtext/svdtext.py): SVD for word similarity in sentences.
 * [**streaming posterior update**](./posterior/cointoss.py): Iterative posterior update for coin tosses.
 * [**kernel perceptron**](./kernel_perceptron/kernel_perceptron.py): Kernel perceptron.
 * [**dual perceptron**](./dual_perceptron/dual_perceptron.py): Dual perceptron.
