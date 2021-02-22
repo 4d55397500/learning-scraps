@@ -36,4 +36,4 @@ if __name__ == "__main__":
     while True:
         ps = posterior(ps)
         mle, _ = max(enumerate(ps), key=lambda e: e[1])
-        print("mle: {} p: {}".format(mle, P))
+        print("map: {} p: {}".format(mle, P))
